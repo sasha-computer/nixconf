@@ -157,7 +157,7 @@
     libreoffice-fresh
     smile
     obsidian
-    inputs.helium.packages.${pkgs.system}.default
+    inputs.helium.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 
   environment.variables = {

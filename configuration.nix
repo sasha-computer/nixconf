@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 
 {
   imports = [ ./hardware-configuration.nix ];
@@ -157,6 +157,7 @@
     libreoffice-fresh
     smile
     obsidian
+    inputs.helium.packages.${pkgs.system}.default
   ];
 
   environment.variables = {

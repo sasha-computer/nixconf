@@ -1,11 +1,36 @@
 { pkgs, ... }:
+let
+  shellAliases = {
+    rebuild = "sudo nixos-rebuild switch";
+    cdd = "cd ~/Developer/";
 
+    gl = "git log --oneline";
+    gcm = "git commit -m";
+    gaa = "git add .";
+    gs = "git status";
+    gf = "git fetch";
+    gfp = "git fetch --prune";
+    gpl = "git pull";
+    gp = "git push";
+    gc = "git checkout";
+    gcb = "git checkout -b";
+    gcl = "git clone";
+    grv = "git remote -v";
+    cc = "claude --dangerously-skip-permissions";
+    v = "nvim";
+    vf = "nvim ~/.config/fish/config.fish";
+  };
+in
 {
   home.username = "sasha";
   home.homeDirectory = "/home/sasha";
 
   home.packages = with pkgs; [
-    git
+    bat
+    ripgrep
+    dust
+    jq
+    claude-code
   ];
 
   programs.git = {
@@ -22,6 +47,17 @@
       init.defaultBranch = "main";
       gpg.ssh.allowdSignersFile = "~/.ssh/allowed_signers";
     };
+  };
+
+  programs.fish = {
+    enable = true;
+    shellAliases = shellAliases;
+    interactiveShellInit = ''
+      set fish_greeting
+      devenv hook fish | source
+      export PATH="$PATH:/home/sasha/.risc0/bin"
+      export PATH="$PATH:/home/sasha/.nargo/bin"
+    '';
   };
 
   home.stateVersion = "25.11";

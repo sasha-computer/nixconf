@@ -29,6 +29,7 @@
             home-manager.useUserPackages = true;
 
             home-manager.users.sasha = import ./home.nix;
+            home-manager.backupFileExtension = "backup";
           }
         ];
       };

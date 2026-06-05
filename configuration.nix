@@ -115,6 +115,7 @@
           "org/gnome/desktop/input-sources" = {
             xkb-options = [
               "ctrl:nocaps"
+              "altwin:swap_alt_win"
             ];
           };
         };

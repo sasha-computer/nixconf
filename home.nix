@@ -20,6 +20,7 @@
       user.email = "33594434+sasha-computer@users.noreply.github.com";
       push.autoSetupRemote = true;
       init.defaultBranch = "main";
+      gpg.ssh.allowdSignersFile = "~/.ssh/allowed_signers";
     };
   };
 

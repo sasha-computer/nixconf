@@ -65,7 +65,7 @@ in
     enable = true;
     enableFishIntegration = true;
     presets = [
-      "jetpack"
+      "pure-preset"
       "nerd-font-symbols"
     ];
   };

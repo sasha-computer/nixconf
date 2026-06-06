@@ -1,5 +1,4 @@
 { pkgs, inputs, ... }:
-
 {
   imports = [ ./hardware-configuration.nix ];
 
@@ -15,12 +14,20 @@
       "/dev/disk/by-uuid/4d8efd9c-86f7-4d54-b70a-d3914f002ad8";
 
   };
-
-  nix.settings = {
-    experimental-features = [
-      "nix-command"
-      "flakes"
-    ];
+  nix = {
+    gc = {
+      automatic = true;
+      dates = "daily";
+      options = "--delete-older-than 7d --delete-generations +5";
+    };
+    settings = {
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
+      auto-optimise-store = true;
+    };
+    optimise.automatic = true;
   };
   nixpkgs.config.allowUnfree = true;
 
@@ -126,7 +133,6 @@
   environment.systemPackages = with pkgs; [
     vim
     neovim
-    # ghostty
     ungoogled-chromium
     _1password-gui
     newsflash

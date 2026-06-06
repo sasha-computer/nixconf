@@ -126,7 +126,7 @@
   environment.systemPackages = with pkgs; [
     vim
     neovim
-    ghostty
+    # ghostty
     ungoogled-chromium
     _1password-gui
     newsflash

@@ -32,6 +32,7 @@ in
     jq
     claude-code
     ladybird
+    ghostty
   ];
 
   programs.git = {
@@ -48,6 +49,38 @@ in
       init.defaultBranch = "main";
       gpg.ssh.allowdSignersFile = "~/.ssh/allowed_signers";
     };
+  };
+
+  programs.ghostty = {
+    enable = true;
+    enableFishIntegration = true;
+
+    settings = {
+      font-size = 14;
+      copy-on-select = "clipboard";
+      keybind = [
+        "ctrl+s=activate_key_table:split"
+
+        "split/h=goto_split:left"
+        "split/j=goto_split:down"
+        "split/k=goto_split:up"
+        "split/l=goto_split:right"
+
+        "split/v=new_split:right"
+        "split/s=new_split:down"
+
+        "split/z=toggle_split_zoom"
+        "split/+=equalize_splits"
+        "split/c=close_surface"
+
+        "split/escape=deactivate_key_table"
+        "split/catch_all=ignore"
+      ];
+      # theme = "catppuccin-mocha";
+      quit-after-last-window-closed = false;
+    };
+
+    systemd.enable = true;
   };
 
   programs.fish = {

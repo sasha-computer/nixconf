@@ -31,6 +31,7 @@ in
     dust
     jq
     claude-code
+    ladybird
   ];
 
   programs.git = {
@@ -58,6 +59,15 @@ in
       export PATH="$PATH:/home/sasha/.risc0/bin"
       export PATH="$PATH:/home/sasha/.nargo/bin"
     '';
+  };
+
+  programs.starship = {
+    enable = true;
+    enableFishIntegration = true;
+    presets = [
+      "jetpack"
+      "nerd-font-symbols"
+    ];
   };
 
   home.stateVersion = "25.11";

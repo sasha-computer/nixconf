@@ -115,7 +115,7 @@
           "org/gnome/desktop/input-sources" = {
             xkb-options = [
               "ctrl:nocaps"
-              "altwin:swap_alt_win"
+              # "altwin:swap_alt_win"
             ];
           };
         };
@@ -166,6 +166,18 @@
     VISUAL = "nvim";
     OPENCODE_ENABLE_EXA = "1";
   };
+
+  fonts.packages = with pkgs; [
+    nerd-fonts.jetbrains-mono
+    nerd-fonts.caskaydia-mono
+    nerd-fonts.geist-mono
+    nerd-fonts.im-writing
+    nerd-fonts.blex-mono
+    nerd-fonts.iosevka
+    nerd-fonts.iosevka-term
+    nerd-fonts.commit-mono
+    nerd-fonts.zed-mono
+  ];
 
   security.rtkit.enable = true;
   system.stateVersion = "25.11";

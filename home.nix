@@ -33,6 +33,7 @@ in
     claude-code
     ladybird
     ghostty
+    helix
   ];
 
   programs.git = {
@@ -51,6 +52,17 @@ in
     };
   };
 
+  programs.fish = {
+    enable = true;
+    shellAliases = shellAliases;
+    interactiveShellInit = ''
+      set fish_greeting
+      devenv hook fish | source
+      export PATH="$PATH:/home/sasha/.risc0/bin"
+      export PATH="$PATH:/home/sasha/.nargo/bin"
+    '';
+  };
+
   programs.ghostty = {
     enable = true;
     enableFishIntegration = true;
@@ -58,7 +70,8 @@ in
     settings = {
       confirm-close-surface = false;
       copy-on-select = "clipboard";
-      font-size = 14;
+      font-size = 18;
+      font-family = "CommitMono Nerd Font Mono";
       theme = "Catppuccin Mocha";
       quit-after-last-window-closed = false;
 
@@ -77,15 +90,8 @@ in
     systemd.enable = true;
   };
 
-  programs.fish = {
+  programs.helix = {
     enable = true;
-    shellAliases = shellAliases;
-    interactiveShellInit = ''
-      set fish_greeting
-      devenv hook fish | source
-      export PATH="$PATH:/home/sasha/.risc0/bin"
-      export PATH="$PATH:/home/sasha/.nargo/bin"
-    '';
   };
 
   programs.starship = {
@@ -93,6 +99,7 @@ in
     enableFishIntegration = true;
     presets = [
       "pure-preset"
+      # "catppuccin-powerline"
       "nerd-font-symbols"
     ];
   };

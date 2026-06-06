@@ -63,21 +63,32 @@
   };
 
   services = {
+    avahi = {
+      enable = true;
+      nssmdns4 = true;
+      openFirewall = true;
+    };
+
     displayManager.gdm.enable = true;
     desktopManager.gnome.enable = true;
-
-    pulseaudio.enable = false;
-    pipewire = {
-      enable = true;
-      alsa.enable = true;
-      alsa.support32Bit = true;
-      pulse.enable = true;
-    };
 
     fprintd = {
       enable = true;
       tod.enable = true;
       tod.driver = pkgs.libfprint-2-tod1-goodix;
+    };
+
+    keyd = {
+      enable = true;
+
+      keyboards.default = {
+        # all keyboards
+        ids = [ "*" ];
+        settings.main = {
+          # Caps Lock = Ctrl when held, Esc when tapped
+          capslock = "overload(control, esc)";
+        };
+      };
     };
 
     printing = {
@@ -87,10 +98,12 @@
       ];
     };
 
-    avahi = {
+    pulseaudio.enable = false;
+    pipewire = {
       enable = true;
-      nssmdns4 = true;
-      openFirewall = true;
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      pulse.enable = true;
     };
 
     mullvad-vpn.enable = true;

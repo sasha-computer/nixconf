@@ -6,7 +6,6 @@
 - have computer not loginable after 8pm cold turkey macOS style but on Linux
 - codeberg v github
 - set up 1Password real deep
-- helium or ungoogled? 
 - set up zed real nice
   - vim not effecting other keybinds
   - rebuild built in somehow?

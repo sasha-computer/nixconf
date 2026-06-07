@@ -151,7 +151,7 @@
   environment.systemPackages = with pkgs; [
     vim
     neovim
-    ungoogled-chromium
+    # ungoogled-chromium
     _1password-gui
     newsflash
     signal-desktop
@@ -182,7 +182,7 @@
     libreoffice-fresh
     smile
     obsidian
-    inputs.helium.packages.${pkgs.stdenv.hostPlatform.system}.default
+    # inputs.helium.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 
   environment.variables = {

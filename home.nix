@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 let
   shellAliases = {
     rebuild = "sudo nixos-rebuild switch";
@@ -38,6 +38,11 @@ in
     nh
   ];
 
+  programs.chromium = {
+    enable = true;
+    package = inputs.helium.packages.${pkgs.stdenv.hostPlatform.system}.default;
+  };
+
   programs.git = {
     enable = true;
     signing = {
@@ -73,7 +78,7 @@ in
     settings = {
       confirm-close-surface = false;
       copy-on-select = "clipboard";
-      font-size = 18;
+      font-size = 14;
       font-family = "CommitMono Nerd Font Mono";
       theme = "Catppuccin Mocha";
       quit-after-last-window-closed = false;
@@ -101,7 +106,6 @@ in
     enableFishIntegration = true;
     presets = [
       "pure-preset"
-      # "catppuccin-powerline"
       "nerd-font-symbols"
     ];
   };

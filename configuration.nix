@@ -74,8 +74,11 @@
 
     fprintd = {
       enable = true;
-      tod.enable = true;
-      tod.driver = pkgs.libfprint-2-tod1-goodix;
+      package = pkgs.fprintd.override { libfprint = pkgs.libfprint-tod; };
+      tod = {
+        enable = true;
+        driver = pkgs.libfprint-2-tod1-goodix;
+      };
     };
 
     fwupd.enable = true;

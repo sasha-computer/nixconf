@@ -188,7 +188,7 @@ in
       buffer_font_size = 16.0;
       theme = {
         mode = "system";
-        light = "Catppuccin Latte";
+        light = "One Light";
         dark = "Catppuccin Macchiato";
       };
     };

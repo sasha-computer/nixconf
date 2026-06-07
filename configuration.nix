@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ pkgs, ... }:
 {
   imports = [ ./hardware-configuration.nix ];
 
@@ -148,41 +148,22 @@
     ];
   };
 
+  environment.etc = {
+    "1password/custom_allowed_browsers" = {
+      text = ''
+        helium
+      '';
+      mode = "0755";
+    };
+  };
+
   environment.systemPackages = with pkgs; [
-    vim
     neovim
-    # ungoogled-chromium
-    _1password-gui
-    newsflash
-    signal-desktop
-    telegram-desktop
-    slack
-    spotify
-    discord
     git
-    btop
-    mullvad-vpn
-    anki-bin
     gnomeExtensions.appindicator
     gnomeExtensions.caffeine
     gnomeExtensions.copyous
     gnomeExtensions.paperwm
-    nerd-fonts.jetbrains-mono
-    sticky-notes
-    zed-editor
-    bat
-    nil
-    nixd
-    gh
-    bun
-    devenv
-    opencode
-    claude-code
-    localsend
-    libreoffice-fresh
-    smile
-    obsidian
-    # inputs.helium.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 
   environment.variables = {

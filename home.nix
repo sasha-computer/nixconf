@@ -26,16 +26,52 @@ in
   home.homeDirectory = "/home/sasha";
 
   home.packages = with pkgs; [
+    # command line tools
     bat
     ripgrep
     dust
     jq
-    claude-code
-    ladybird
+
+    # terminal
     ghostty
-    helix
-    gnome-boxes
+    claude-code
+    opencode
+
+    # nix
     nh
+    nixd
+
+    # messaging
+    signal-desktop
+    telegram-desktop
+    slack
+    discord
+
+    # privacy/security
+    _1password-gui
+    mullvad-vpn
+    tor-browser
+    gnome-boxes
+
+    # dev tools
+    gh
+    bun
+    devenv
+
+    # editors
+    obsidian
+    libreoffice-fresh
+    helix
+
+    # entertainment
+    newsflash
+    spotify
+
+    # tools
+    anki-bin
+    localsend
+    smile
+
   ];
 
   programs.chromium = {
@@ -108,6 +144,10 @@ in
       "pure-preset"
       "nerd-font-symbols"
     ];
+  };
+
+  programs.zed-editor = {
+    enable = true;
   };
 
   home.stateVersion = "25.11";

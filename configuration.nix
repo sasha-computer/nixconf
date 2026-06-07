@@ -78,6 +78,8 @@
       tod.driver = pkgs.libfprint-2-tod1-goodix;
     };
 
+    fwupd.enable = true;
+
     keyd = {
       enable = true;
 
@@ -196,8 +198,17 @@
     nerd-fonts.iosevka-term
     nerd-fonts.commit-mono
     nerd-fonts.zed-mono
+    noto-fonts
+    noto-fonts-color-emoji
   ];
 
-  security.rtkit.enable = true;
+  security = {
+    rtkit.enable = true;
+    pam.services = {
+      gdm.fprintAuth = true;
+      gdm-password.fprintAuth = true;
+      sudo.fprintAuth = true;
+    };
+  };
   system.stateVersion = "25.11";
 }

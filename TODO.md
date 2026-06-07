@@ -1,0 +1,13 @@
+- Auto theming in the terminal + editors
+- Niri + Noctalia Shell
+- flake-parts
+- stateless machine?
+  - droungoogled chromium dnsapbox esque vibes but wat do in 2026
+- have computer not loginable after 8pm cold turkey macOS style but on Linux
+- codeberg v github
+- set up 1Password real deep
+- helium or ungoogled? 
+- set up zed real nice
+  - vim not effecting other keybinds
+  - rebuild built in somehow?
+- Secure DNS system video with chromium wrapper for captive portals

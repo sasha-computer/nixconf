@@ -34,6 +34,8 @@ in
     ladybird
     ghostty
     helix
+    gnome-boxes
+    nh
   ];
 
   programs.git = {
@@ -66,6 +68,7 @@ in
   programs.ghostty = {
     enable = true;
     enableFishIntegration = true;
+    systemd.enable = true;
 
     settings = {
       confirm-close-surface = false;
@@ -87,7 +90,6 @@ in
         "ctrl+s>q=close_surface"
       ];
     };
-    systemd.enable = true;
   };
 
   programs.helix = {

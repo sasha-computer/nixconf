@@ -2,37 +2,11 @@
 {
   imports = [
     ./hardware-configuration.nix
+    ./boot.nix
     ./desktop.nix
+    ./nix.nix
+    ./services.nix
   ];
-
-  boot = {
-    loader = {
-      systemd-boot.enable = true;
-      efi.canTouchEfiVariables = true;
-    };
-
-    kernelPackages = pkgs.linuxPackages_latest;
-    kernelParams = [ "amdgpu.sg_display=0" ];
-    initrd.luks.devices."luks-4d8efd9c-86f7-4d54-b70a-d3914f002ad8".device =
-      "/dev/disk/by-uuid/4d8efd9c-86f7-4d54-b70a-d3914f002ad8";
-
-  };
-  nix = {
-    gc = {
-      automatic = true;
-      dates = "daily";
-      options = "--delete-older-than 7d --delete-generations +5";
-    };
-    settings = {
-      experimental-features = [
-        "nix-command"
-        "flakes"
-      ];
-      auto-optimise-store = true;
-    };
-    optimise.automatic = true;
-  };
-  nixpkgs.config.allowUnfree = true;
 
   users.users.sasha = {
     isNormalUser = true;
@@ -65,86 +39,13 @@
     };
   };
 
-  services = {
-    avahi = {
-      enable = true;
-      nssmdns4 = true;
-      openFirewall = true;
-    };
-
-    fprintd = {
-      enable = true;
-      package = pkgs.fprintd.override { libfprint = pkgs.libfprint-tod; };
-      tod = {
-        enable = true;
-        driver = pkgs.libfprint-2-tod1-goodix;
-      };
-    };
-
-    fwupd.enable = true;
-
-    keyd = {
-      enable = true;
-      keyboards.default = {
-        # all keyboards
-        ids = [ "*" ];
-        settings.main = {
-          # Caps Lock = Ctrl when held, Esc when tapped
-          capslock = "overload(control, esc)";
-        };
-      };
-    };
-
-    pulseaudio.enable = false;
-    pipewire = {
-      enable = true;
-      alsa.enable = true;
-      alsa.support32Bit = true;
-      pulse.enable = true;
-    };
-
-    printing = {
-      enable = true;
-      drivers = [
-        pkgs.brlaser
-      ];
-    };
-
-    mullvad-vpn.enable = true;
-  };
-
   programs = {
     fish.enable = true;
-    nix-ld.enable = true;
-
-    nix-ld.libraries = with pkgs; [
-      stdenv.cc.cc
-      zlib
-      openssl
-      gcc
-      glibc
-    ];
 
     _1password-gui = {
       polkitPolicyOwners = [ "sasha" ];
     };
 
-    # dconf.profiles.user.databases = [
-    #   {
-    #     lockAll = true;
-    #     settings = {
-    #       "org/gnome/desktop/interface" = {
-    #         accent-color = "blue";
-    #       };
-    #       "org/gnome/desktop/input-sources" = {
-    #         xkb-options = [
-    #           "ctrl:nocaps"
-    #           # "altwin:swap_alt_win"
-    #         ];
-    #       };
-    #     };
-    #   }
-    # ];
   };
 
   environment.etc = {
@@ -157,20 +58,9 @@
   };
 
   environment.systemPackages = with pkgs; [
-    neovim
+    helix
     git
-
-    ## gnome extensions
-    # gnomeExtensions.appindicator
-    # gnomeExtensions.caffeine
-    # gnomeExtensions.copyous
   ];
-
-  environment.variables = {
-    EDITOR = "nvim";
-    VISUAL = "nvim";
-    OPENCODE_ENABLE_EXA = "1";
-  };
 
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono

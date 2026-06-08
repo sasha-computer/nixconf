@@ -206,5 +206,9 @@ in
   xdg.configFile."autostart/mullvad-vpn.desktop".source =
     "${pkgs.mullvad-vpn}/share/applications/mullvad-vpn.desktop";
 
+  xsession.windowManager.i3 = {
+    enable = true;
+  };
+
   home.stateVersion = "25.11";
 }

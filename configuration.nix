@@ -2,6 +2,7 @@
 {
   imports = [
     ./hardware-configuration.nix
+    ./desktop.nix
   ];
 
   boot = {
@@ -71,9 +72,6 @@
       openFirewall = true;
     };
 
-    displayManager.gdm.enable = true;
-    desktopManager.gnome.enable = true;
-
     fprintd = {
       enable = true;
       package = pkgs.fprintd.override { libfprint = pkgs.libfprint-tod; };
@@ -87,7 +85,6 @@
 
     keyd = {
       enable = true;
-
       keyboards.default = {
         # all keyboards
         ids = [ "*" ];
@@ -98,19 +95,20 @@
       };
     };
 
+    pulseaudio.enable = false;
     pipewire = {
       enable = true;
       alsa.enable = true;
       alsa.support32Bit = true;
       pulse.enable = true;
     };
+
     printing = {
       enable = true;
       drivers = [
         pkgs.brlaser
       ];
     };
-    pulseaudio.enable = false;
 
     mullvad-vpn.enable = true;
   };
@@ -131,22 +129,22 @@
       polkitPolicyOwners = [ "sasha" ];
     };
 
-    dconf.profiles.user.databases = [
-      {
-        lockAll = true;
-        settings = {
-          "org/gnome/desktop/interface" = {
-            accent-color = "blue";
-          };
-          "org/gnome/desktop/input-sources" = {
-            xkb-options = [
-              "ctrl:nocaps"
-              # "altwin:swap_alt_win"
-            ];
-          };
-        };
-      }
-    ];
+    # dconf.profiles.user.databases = [
+    #   {
+    #     lockAll = true;
+    #     settings = {
+    #       "org/gnome/desktop/interface" = {
+    #         accent-color = "blue";
+    #       };
+    #       "org/gnome/desktop/input-sources" = {
+    #         xkb-options = [
+    #           "ctrl:nocaps"
+    #           # "altwin:swap_alt_win"
+    #         ];
+    #       };
+    #     };
+    #   }
+    # ];
   };
 
   environment.etc = {
@@ -163,9 +161,9 @@
     git
 
     ## gnome extensions
-    gnomeExtensions.appindicator
-    gnomeExtensions.caffeine
-    gnomeExtensions.copyous
+    # gnomeExtensions.appindicator
+    # gnomeExtensions.caffeine
+    # gnomeExtensions.copyous
   ];
 
   environment.variables = {
@@ -191,8 +189,8 @@
   security = {
     rtkit.enable = true;
     pam.services = {
-      gdm.fprintAuth = true;
-      gdm-password.fprintAuth = true;
+      # gdm.fprintAuth = true;
+      # gdm-password.fprintAuth = true;
       sudo.fprintAuth = true;
     };
   };

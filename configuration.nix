@@ -1,6 +1,9 @@
 { pkgs, ... }:
 {
-  imports = [ ./hardware-configuration.nix ];
+  imports = [
+    ./hardware-configuration.nix
+    ./desktop.nix
+  ];
 
   boot = {
     loader = {
@@ -69,9 +72,6 @@
       openFirewall = true;
     };
 
-    displayManager.gdm.enable = true;
-    desktopManager.gnome.enable = true;
-
     fprintd = {
       enable = true;
       package = pkgs.fprintd.override { libfprint = pkgs.libfprint-tod; };
@@ -101,14 +101,6 @@
       drivers = [
         pkgs.brlaser
       ];
-    };
-
-    pulseaudio.enable = false;
-    pipewire = {
-      enable = true;
-      alsa.enable = true;
-      alsa.support32Bit = true;
-      pulse.enable = true;
     };
 
     mullvad-vpn.enable = true;
@@ -160,10 +152,6 @@
   environment.systemPackages = with pkgs; [
     neovim
     git
-    gnomeExtensions.appindicator
-    gnomeExtensions.caffeine
-    gnomeExtensions.copyous
-    gnomeExtensions.paperwm
   ];
 
   environment.variables = {

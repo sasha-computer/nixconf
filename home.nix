@@ -43,7 +43,7 @@ in
 
     # terminal
     ghostty
-    claude-code
+    inputs.claude-code.packages.${pkgs.stdenv.hostPlatform.system}.default
     opencode
 
     # nix
@@ -111,20 +111,6 @@ in
 
   xdg.configFile."autostart/mullvad-vpn.desktop".source =
     "${pkgs.mullvad-vpn}/share/applications/mullvad-vpn.desktop";
-
-  xdg.mime.defaultApplications = {
-    "text/html" = "helium.desktop";
-    "application/xhtml+xml" = "helium.desktop";
-    "x-scheme-handler/http" = "helium.desktop";
-    "x-scheme-handler/https" = "helium.desktop";
-    "x-scheme-handler/about" = "helium.desktop";
-    "x-scheme-handler/unknown" = "helium.desktop";
-    "application/x-extension-htm" = "helium.desktop";
-    "application/x-extension-html" = "helium.desktop";
-    "application/x-extension-shtml" = "helium.desktop";
-    "application/x-extension-xhtml" = "helium.desktop";
-    "application/x-extension-xht" = "helium.desktop";
-  };
 
   # xresources.properties = {
   #   "Xft.dpi" = 192;

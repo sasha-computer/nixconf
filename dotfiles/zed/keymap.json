@@ -1,0 +1,9 @@
+[
+  {
+    "bindings": {
+      "ctrl-j": "workspace::ToggleBottomDock",
+      "ctrl-s": "workspace::ToggleLeftDock",
+      "ctrl-shift-s": "workspace::ToggleRightDock"
+    }
+  }
+]

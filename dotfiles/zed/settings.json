@@ -1,0 +1,133 @@
+{
+  "collaboration_panel": {
+    "button": false
+  },
+  "tabs": {
+    "git_status": false
+  },
+  "title_bar": {
+    "show_branch_status_icon": false,
+    "show_sign_in": false
+  },
+  "debugger": {
+    "button": false
+  },
+  "search": {
+    "button": false
+  },
+  "diagnostics": {
+    "button": false
+  },
+  "status_bar": {
+    "cursor_position_button": false,
+    "active_language_button": false
+  },
+  "tab_bar": {
+    "show": false
+  },
+  "context_servers": {
+    "mcp-server-brave-search": {
+      "enabled": true,
+      "remote": false,
+      "settings": {
+        "brave_api_key": ""
+      }
+    }
+  },
+  "vim": {
+    "toggle_relative_line_numbers": true
+  },
+  "helix_mode": false,
+  "buffer_font_family": "CommitMono Nerd Font Mono",
+  "terminal": {
+    "button": false,
+    "font_family": "CommitMono Nerd Font Mono",
+    "font_size": 14
+  },
+  "agent": {
+    "default_profile": "ask",
+    "default_model": {
+      "provider": "Fireworks",
+      "model": "accounts/fireworks/models/kimi-k2p6",
+      "enable_thinking": false
+    },
+    "favorite_models": [],
+    "model_parameters": [],
+    "profiles": {
+      "ask": {
+        "name": "Ask",
+        "tools": {
+          "read_file": true,
+          "grep": true,
+          "find_path": true,
+          "list_directory": true,
+          "fetch": false,
+          "terminal": false,
+          "edit_file": false,
+          "delete_path": false,
+          "move_path": false,
+          "copy_path": false,
+          "create_directory": false,
+          "diagnostics": false
+        },
+        "enable_all_context_servers": false,
+        "context_servers": {
+          "mcp-server-brave-search": {
+            "tools": {
+              "brave_web_search": true,
+              "brave_llm_context": true
+            }
+          }
+        }
+      }
+    },
+    "tool_permissions": {
+      "default": "allow"
+    }
+  },
+  "language_models": {
+    "openai_compatible": {
+      "Fireworks": {
+        "api_url": "https://api.fireworks.ai/inference/v1",
+        "available_models": [
+          {
+            "name": "accounts/fireworks/models/kimi-k2p6",
+            "max_tokens": 262144,
+            "max_output_tokens": 262144,
+            "capabilities": {
+              "tools": true,
+              "images": true,
+              "parallel_tool_calls": false,
+              "prompt_cache_key": false
+            }
+          }
+        ]
+      }
+    }
+  },
+  "agent_servers": {
+    "claude-acp": {
+      "type": "registry"
+    }
+  },
+  "project_panel": {
+    "button": true,
+    "dock": "left"
+  },
+  "autosave": "on_focus_change",
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false
+  },
+  "session": {
+    "trust_all_worktrees": true
+  },
+  "vim_mode": true,
+  "ui_font_size": 16,
+  "buffer_font_size": 16.0,
+  "theme": {
+    "mode": "system",
+    "light": "One Light",
+    "dark": "Catppuccin Macchiato"
+  }
+}

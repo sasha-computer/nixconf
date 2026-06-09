@@ -1,0 +1,11 @@
+theme = "dark_high_contrast"
+
+[editor]
+line-number = "relative"
+
+[editor.auto-save]
+focus-lost = true
+
+[editor.soft-wrap]
+enable = true
+

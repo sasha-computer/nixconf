@@ -36,6 +36,7 @@
       obsidian
       libreoffice-fresh
       helix
+      zed-editor
 
       # entertainment
       newsflash
@@ -46,11 +47,6 @@
       localsend
       smile
     ];
-
-    home.sessionVariables = {
-      BROWSER = "helium";
-      OPENCODE_ENABLE_EXA = "1";
-    };
 
     programs.chromium = {
       enable = true;

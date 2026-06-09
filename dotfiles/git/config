@@ -1,0 +1,22 @@
+[commit]
+	gpgSign = true
+
+[gpg]
+	format = "ssh"
+
+[gpg "ssh"]
+	allowedSignersFile = "~/.ssh/allowed_signers"
+
+[init]
+	defaultBranch = "main"
+
+[push]
+	autoSetupRemote = true
+
+[tag]
+	gpgSign = true
+
+[user]
+	email = "33594434+sasha-computer@users.noreply.github.com"
+	name = "Sasha"
+	signingKey = "~/.ssh/id_ed25519.pub"

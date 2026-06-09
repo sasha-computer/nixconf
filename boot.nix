@@ -1,10 +1,16 @@
-{ pkgs, ...}:
+{ config, pkgs, ... }:
 {
- boot = {
+  boot = {
     loader = {
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
     };
+
+    extraModulePackages = [ config.boot.kernelPackages.ddcci-driver ];
+    kernelModules = [
+      "i2c-dev"
+      "ddcci_backlight"
+    ];
 
     kernelPackages = pkgs.linuxPackages_latest;
     kernelParams = [ "amdgpu.sg_display=0" ];

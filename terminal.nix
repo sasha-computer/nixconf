@@ -51,6 +51,9 @@
         auto-save = {
           focus-lost = true;
         };
+        soft-wrap = {
+          enable = true;
+        };
       };
       theme = "dark_high_contrast";
     };

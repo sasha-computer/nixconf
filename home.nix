@@ -69,6 +69,7 @@ in
     bun
     devenv
     marksman
+    steel
     zellij
 
     # editors

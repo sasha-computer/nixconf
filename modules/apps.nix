@@ -1,0 +1,63 @@
+{ pkgs, inputs, ... }:
+{
+  programs._1password-gui = {
+    polkitPolicyOwners = [ "sasha" ];
+  };
+
+  environment.etc = {
+    "1password/custom_allowed_browsers" = {
+      text = ''
+        helium
+      '';
+      mode = "0755";
+    };
+  };
+
+  home-manager.users.sasha = {
+    home.packages = with pkgs; [
+      # terminal
+      ghostty
+      inputs.claude-code.packages.${pkgs.stdenv.hostPlatform.system}.default
+      opencode
+
+      # messaging
+      signal-desktop
+      telegram-desktop
+      slack
+      discord
+
+      # privacy/security
+      _1password-gui
+      mullvad-vpn
+      tor-browser
+      gnome-boxes
+
+      # editors
+      obsidian
+      libreoffice-fresh
+      helix
+
+      # entertainment
+      newsflash
+      spotify
+
+      # tools
+      anki-bin
+      localsend
+      smile
+    ];
+
+    home.sessionVariables = {
+      BROWSER = "helium";
+      OPENCODE_ENABLE_EXA = "1";
+    };
+
+    programs.chromium = {
+      enable = true;
+      package = inputs.helium.packages.${pkgs.stdenv.hostPlatform.system}.default;
+    };
+
+    xdg.configFile."autostart/mullvad-vpn.desktop".source =
+      "${pkgs.mullvad-vpn}/share/applications/mullvad-vpn.desktop";
+  };
+}

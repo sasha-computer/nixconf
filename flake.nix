@@ -4,6 +4,7 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     flake-parts.url = "github:hercules-ci/flake-parts";
+    import-tree.url = "github:vic/import-tree";
 
     claude-code = {
       url = "github:sadjow/claude-code-nix";
@@ -21,28 +22,15 @@
   };
 
   outputs =
-    inputs@{
-      flake-parts,
-      ...
-    }:
+    inputs@{ flake-parts, ... }:
     flake-parts.lib.mkFlake { inherit inputs; } {
       systems = [ "x86_64-linux" ];
 
-      flake = {
-        nixosConfigurations.fw13 = inputs.nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs; };
-          modules = [
-            ./configuration.nix
-            inputs.home-manager.nixosModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.extraSpecialArgs = { inherit inputs; };
-              home-manager.users.sasha = import ./home.nix;
-              home-manager.backupFileExtension = "backup";
-            }
-          ];
-        };
+      # Every .nix file under modules/ is imported automatically.
+      # Files prefixed with _ are skipped.
+      flake.nixosConfigurations.fw13 = inputs.nixpkgs.lib.nixosSystem {
+        specialArgs = { inherit inputs; };
+        modules = [ (inputs.import-tree ./modules) ];
       };
     };
 }

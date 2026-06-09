@@ -1,23 +1,5 @@
 { pkgs, ... }:
 {
-  imports = [
-    ./hardware-configuration.nix
-    ./boot.nix
-    ./desktop.nix
-    ./nix.nix
-    ./services.nix
-  ];
-
-  users.users.sasha = {
-    isNormalUser = true;
-    description = "sasha";
-    extraGroups = [
-      "networkmanager"
-      "wheel"
-    ];
-    shell = pkgs.fish;
-  };
-
   networking = {
     hostName = "fw13";
     networkmanager.enable = true;
@@ -36,24 +18,6 @@
       LC_PAPER = "en_GB.UTF-8";
       LC_TELEPHONE = "en_GB.UTF-8";
       LC_TIME = "en_GB.UTF-8";
-    };
-  };
-
-  programs = {
-    fish.enable = true;
-
-    _1password-gui = {
-      polkitPolicyOwners = [ "sasha" ];
-    };
-
-  };
-
-  environment.etc = {
-    "1password/custom_allowed_browsers" = {
-      text = ''
-        helium
-      '';
-      mode = "0755";
     };
   };
 
@@ -84,5 +48,6 @@
       sudo.fprintAuth = true;
     };
   };
+
   system.stateVersion = "25.11";
 }

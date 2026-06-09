@@ -2,24 +2,27 @@
 let
   shellAliases = {
     rebuild = "sudo nixos-rebuild switch";
+
+    cc = "claude --dangerously-skip-permissions";
     cdd = "cd ~/Developer/";
 
-    gl = "git log --oneline";
-    gcm = "git commit -m";
     gaa = "git add .";
-    gs = "git status";
-    gf = "git fetch";
-    gfp = "git fetch --prune";
-    gpl = "git pull";
-    gp = "git push";
     gc = "git checkout";
     gcb = "git checkout -b";
     gcl = "git clone";
+    gcm = "git commit -m";
+    gf = "git fetch";
+    gfp = "git fetch --prune";
+    gl = "git log --oneline";
+    gpl = "git pull";
+    gp = "git push";
     grv = "git remote -v";
-    cc = "claude --dangerously-skip-permissions";
-    v = "nvim";
+    gs = "git status";
+
     h = "hx";
+    v = "nvim";
     vf = "nvim ~/.config/fish/config.fish";
+    z = "zellij";
   };
 in
 {
@@ -47,6 +50,7 @@ in
     nh
     nixd
     nil
+    nixfmt
 
     # messaging
     signal-desktop

@@ -15,7 +15,6 @@
     };
   };
 
-
   programs.ghostty = {
     enable = true;
     enableFishIntegration = true;
@@ -26,7 +25,7 @@
       copy-on-select = "clipboard";
       font-size = 14;
       font-family = "CommitMono Nerd Font Mono";
-      theme = "Catppuccin Mocha";
+      theme = "GitHub Dark High Contrast";
       quit-after-last-window-closed = false;
       window-decoration = "none";
       keybind = [
@@ -46,6 +45,23 @@
   programs.helix = {
     enable = true;
     defaultEditor = true;
+    settings = {
+      editor = {
+        line-number = "relative";
+        auto-save = {
+          focus-lost = true;
+        };
+      };
+      theme = "dark_high_contrast";
+    };
+    languages = {
+      language = [
+        {
+          name = "nix";
+          auto-format = true;
+        }
+      ];
+    };
   };
 
   programs.starship = {

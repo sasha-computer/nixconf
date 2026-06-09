@@ -19,6 +19,11 @@
       url = "github:schembriaiden/helium-browser-nix-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    # stable v4; main is the v5 alpha rewrite (binary renamed noctalia-shell -> noctalia)
+    noctalia = {
+      url = "github:noctalia-dev/noctalia-shell/legacy-v4";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =

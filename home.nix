@@ -63,6 +63,7 @@ in
     gh
     bun
     devenv
+    marksman
 
     # editors
     obsidian

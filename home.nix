@@ -18,6 +18,7 @@ let
     grv = "git remote -v";
     cc = "claude --dangerously-skip-permissions";
     v = "nvim";
+    h = "hx";
     vf = "nvim ~/.config/fish/config.fish";
   };
 in
@@ -64,6 +65,7 @@ in
     bun
     devenv
     marksman
+    zellij
 
     # editors
     obsidian

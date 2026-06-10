@@ -105,20 +105,9 @@
           "onlyActiveWorkspaces": true,
           "onlySameOutput": true,
           "showPinnedApps": false,
-          "showTitle": false,
-          "smartWidth": true,
-          "titleWidth": 120
-        },
-        {
-          "colorizeIcons": false,
-          "hideMode": "hidden",
-          "id": "ActiveWindow",
-          "maxWidth": 300,
-          "scrollingMode": "hover",
-          "showIcon": false,
-          "showText": true,
-          "textColor": "none",
-          "useFixedWidth": false
+          "showTitle": true,
+          "smartWidth": false,
+          "titleWidth": 150
         }
       ],
       "right": [

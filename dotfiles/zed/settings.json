@@ -1,4 +1,6 @@
 {
+  "buffer_font_weight": 400.0,
+  "icon_theme": "Catppuccin Mocha",
   "collaboration_panel": {
     "button": false
   },
@@ -40,9 +42,11 @@
   "helix_mode": true,
   "buffer_font_family": "CommitMono Nerd Font Mono",
   "terminal": {
+    "default_height": 450.0,
+    "blinking": "terminal_controlled",
     "button": false,
     "font_family": "CommitMono Nerd Font Mono",
-    "font_size": 14
+    "font_size": 16.0
   },
   "agent": {
     "default_profile": "ask",
@@ -123,11 +127,11 @@
     "trust_all_worktrees": true
   },
   "vim_mode": false,
-  "ui_font_size": 16,
-  "buffer_font_size": 16.0,
+  "ui_font_size": 18.0,
+  "buffer_font_size": 18.0,
   "theme": {
-    "mode": "system",
+    "mode": "dark",
     "light": "One Light",
-    "dark": "Catppuccin Macchiato"
+    "dark": "High Contrast VSCode"
   }
 }

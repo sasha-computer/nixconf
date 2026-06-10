@@ -9,3 +9,9 @@ focus-lost = true
 [editor.soft-wrap]
 enable = true
 
+[keys.normal.space]
+space = "file_picker"
+
+[keys.select.space]
+space = "file_picker"
+

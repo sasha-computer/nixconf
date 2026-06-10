@@ -1,7 +1,7 @@
 confirm-close-surface = false
 copy-on-select = clipboard
 font-family = CommitMono Nerd Font Mono
-font-size = 14
+font-size = 18
 keybind = ctrl+s>h=goto_split:left
 keybind = ctrl+s>j=goto_split:down
 keybind = ctrl+s>k=goto_split:up

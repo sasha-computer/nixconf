@@ -1,6 +1,6 @@
 { pkgs, ... }:
 {
-  # ghostty daemon: resident GTK instance so `ghostty +new-window` opens via D-Bus (~20ms)
   systemd.packages = [ pkgs.ghostty ];
+  # make Ghostty start up go vroom vroom
   systemd.user.services."app-com.mitchellh.ghostty".wantedBy = [ "graphical-session.target" ];
 }

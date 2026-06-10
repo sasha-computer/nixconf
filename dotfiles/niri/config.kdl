@@ -62,7 +62,7 @@ binds {
     Mod+Return { spawn "ghostty" "+new-window"; }
     Mod+T { spawn "ghostty" "+new-window"; }
 
-    // Focus Helium if a window exists, otherwise launch it
+    // focus-or-spawn Browser functionality, not a fan of lots of browser windows, that's what tabs are for, amirite?
     Mod+W { spawn "sh" "-c" r#"id=$(niri msg --json windows | jq -r 'first(.[] | select(.app_id != null and (.app_id | test("helium"; "i")))).id // empty'); if [ -n "$id" ]; then niri msg action focus-window --id "$id"; else helium; fi"#; }
 
     Mod+D { spawn "noctalia-shell" "ipc" "call" "launcher" "toggle"; }

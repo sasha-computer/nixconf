@@ -45,7 +45,7 @@
     pam.services = {
       # gdm.fprintAuth = true;
       # gdm-password.fprintAuth = true;
-      sudo.fprintAuth = true;
+      # sudo.fprintAuth = true;
     };
   };
 

@@ -1,6 +1,3 @@
-# Noctalia shell (bar, launcher, notifications, lock screen, wallpaper).
-# Started by niri via spawn-at-startup in dotfiles/niri/config.kdl.
-# Its own settings live in ~/.config/noctalia/, managed by its settings GUI.
 { inputs, pkgs, ... }:
 {
   nix.settings = {

@@ -1,5 +1,3 @@
-# Fish config (aliases etc) lives in dotfiles/fish/config.fish,
-# starship prompt in dotfiles/starship.toml.
 { pkgs, ... }:
 {
   programs.fish.enable = true;

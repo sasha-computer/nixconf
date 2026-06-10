@@ -24,10 +24,10 @@ if status is-interactive
     alias grv "git remote -v"
     alias gs "git status"
 
-    alias h hx
-    alias v nvim
+    alias h "hx"
+    alias v "nvim"
     alias vf "nvim ~/.config/fish/config.fish"
-    alias z zellij
+    alias z "zellij"
 
     devenv hook fish | source
     starship init fish | source

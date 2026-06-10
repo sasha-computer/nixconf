@@ -47,6 +47,7 @@
       libreoffice-fresh
       helix
       zed-editor
+      neovim
 
       # entertainment
       newsflash

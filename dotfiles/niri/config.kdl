@@ -66,6 +66,7 @@ binds {
     Mod+W { spawn "sh" "-c" r#"id=$(niri msg --json windows | jq -r 'first(.[] | select(.app_id != null and (.app_id | test("helium"; "i")))).id // empty'); if [ -n "$id" ]; then niri msg action focus-window --id "$id"; else helium; fi"#; }
 
     Mod+D { spawn "noctalia-shell" "ipc" "call" "launcher" "toggle"; }
+    Mod+Shift+V { spawn "noctalia-shell" "ipc" "call" "launcher" "clipboard"; }
     Mod+Escape { spawn "noctalia-shell" "ipc" "call" "lockScreen" "lock"; }
 
     Mod+Q { close-window; }

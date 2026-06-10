@@ -1,7 +1,7 @@
 { lib, ... }:
 let
   dotfilesPath = "/home/sasha/NixOS/dotfiles";
-  entries = builtins.readDir ../dotfiles;
+  entries = lib.filterAttrs (name: _: name != "claude") (builtins.readDir ../dotfiles);
 in
 {
   home-manager.users.sasha =
@@ -13,5 +13,8 @@ in
           source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/${name}";
         }
       ) entries;
+
+      home.file.".claude/skills".source =
+        config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/claude/skills";
     };
 }

@@ -26,6 +26,7 @@
     git
   ];
 
+  fonts.enableDefaultPackages = true;
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
     nerd-fonts.caskaydia-mono
@@ -38,6 +39,7 @@
     nerd-fonts.zed-mono
     noto-fonts
     noto-fonts-color-emoji
+    newcomputermodern
   ];
 
   security = {

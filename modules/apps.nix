@@ -21,7 +21,17 @@
       opencode
 
       # messaging
-      signal-desktop
+      # force libsecret: Signal's db key lives in gnome-keyring from the GNOME
+      # days, and Electron's backend auto-detection picks basic_text under niri
+      (symlinkJoin {
+        name = "signal-desktop";
+        paths = [ signal-desktop ];
+        nativeBuildInputs = [ makeWrapper ];
+        postBuild = ''
+          wrapProgram $out/bin/signal-desktop \
+            --add-flags "--password-store=gnome-libsecret"
+        '';
+      })
       telegram-desktop
       slack
       discord

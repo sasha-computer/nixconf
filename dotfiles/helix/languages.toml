@@ -1,3 +1,7 @@
 [[language]]
 auto-format = true
 name = "nix"
+
+[[language]]
+auto-format = true
+name = "typst"

@@ -21,6 +21,11 @@
       nil
       nixfmt
 
+      # typst
+      typst
+      typst-live
+      tinymist
+
       # dev tools
       gh
       bun

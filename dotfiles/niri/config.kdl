@@ -31,6 +31,8 @@ hotkey-overlay {
 
 spawn-at-startup "noctalia-shell"
 spawn-at-startup "mullvad-vpn"
+// pre-warm helium: process starts windowless, Mod+W then opens windows instantly
+spawn-at-startup "helium" "--no-startup-window"
 
 layout {
     gaps 8

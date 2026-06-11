@@ -1,3 +1,6 @@
+# login shell so PATH is rebuilt even when the systemd-autostarted
+# ghostty captured a stale pre-session environment
+command = /run/current-system/sw/bin/fish --login
 confirm-close-surface = false
 copy-on-select = clipboard
 font-family = CommitMono Nerd Font Mono

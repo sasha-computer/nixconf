@@ -61,7 +61,15 @@
 
     programs.chromium = {
       enable = true;
-      package = inputs.helium.packages.${pkgs.stdenv.hostPlatform.system}.default;
+      package = pkgs.symlinkJoin {
+        name = "helium-scaled";
+        paths = [ inputs.helium.packages.${pkgs.stdenv.hostPlatform.system}.default ];
+        nativeBuildInputs = [ pkgs.makeWrapper ];
+        postBuild = ''
+          wrapProgram $out/bin/helium \
+            --add-flags "--force-device-scale-factor=1.4"
+        '';
+      };
     };
 
     xdg.configFile."autostart/mullvad-vpn.desktop".source =

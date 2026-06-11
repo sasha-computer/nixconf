@@ -45,9 +45,7 @@
   security = {
     rtkit.enable = true;
     pam.services = {
-      # gdm.fprintAuth = true;
-      # gdm-password.fprintAuth = true;
-      # sudo.fprintAuth = true;
+      sudo.fprintAuth = false;
     };
   };
 

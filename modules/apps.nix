@@ -21,8 +21,6 @@
       opencode
 
       # messaging
-      # force libsecret: Signal's db key lives in gnome-keyring from the GNOME
-      # days, and Electron's backend auto-detection picks basic_text under niri
       (symlinkJoin {
         name = "signal-desktop";
         paths = [ signal-desktop ];

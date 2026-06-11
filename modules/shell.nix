@@ -1,6 +1,7 @@
 { pkgs, ... }:
 {
   programs.fish.enable = true;
+  programs.direnv.enable = true;
 
   environment.variables.EDITOR = "hx";
 

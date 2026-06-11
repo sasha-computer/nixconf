@@ -29,6 +29,5 @@ if status is-interactive
     alias vf "nvim ~/.config/fish/config.fish"
     alias z "zellij"
 
-    devenv hook fish | source
     starship init fish | source
 end

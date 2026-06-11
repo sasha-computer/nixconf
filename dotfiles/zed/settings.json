@@ -1,44 +1,41 @@
 {
+  "soft_wrap": "editor_width",
+  "git": {
+    "inline_blame": {
+      "enabled": false,
+    },
+  },
   "cli_default_open_behavior": "existing_window",
   "buffer_font_weight": 400.0,
   "icon_theme": "Catppuccin Mocha",
   "collaboration_panel": {
-    "button": false
+    "button": false,
   },
   "tabs": {
-    "git_status": false
+    "git_status": false,
   },
   "title_bar": {
     "show_branch_status_icon": false,
-    "show_sign_in": false
+    "show_sign_in": false,
   },
   "debugger": {
-    "button": false
+    "button": false,
   },
   "search": {
-    "button": false
+    "button": false,
   },
   "diagnostics": {
-    "button": false
+    "button": false,
   },
   "status_bar": {
     "cursor_position_button": false,
-    "active_language_button": false
+    "active_language_button": false,
   },
   "tab_bar": {
-    "show": false
-  },
-  "context_servers": {
-    "mcp-server-brave-search": {
-      "enabled": true,
-      "remote": false,
-      "settings": {
-        "brave_api_key": ""
-      }
-    }
+    "show": false,
   },
   "vim": {
-    "toggle_relative_line_numbers": true
+    "toggle_relative_line_numbers": true,
   },
   "helix_mode": false,
   "buffer_font_family": "CommitMono Nerd Font Mono",
@@ -47,14 +44,14 @@
     "blinking": "terminal_controlled",
     "button": false,
     "font_family": "CommitMono Nerd Font Mono",
-    "font_size": 20.0
+    "font_size": 20.0,
   },
   "agent": {
     "default_profile": "ask",
     "default_model": {
       "provider": "Fireworks",
       "model": "accounts/fireworks/models/kimi-k2p6",
-      "enable_thinking": false
+      "enable_thinking": false,
     },
     "favorite_models": [],
     "model_parameters": [],
@@ -73,22 +70,14 @@
           "move_path": false,
           "copy_path": false,
           "create_directory": false,
-          "diagnostics": false
+          "diagnostics": false,
         },
         "enable_all_context_servers": false,
-        "context_servers": {
-          "mcp-server-brave-search": {
-            "tools": {
-              "brave_web_search": true,
-              "brave_llm_context": true
-            }
-          }
-        }
-      }
+      },
     },
     "tool_permissions": {
-      "default": "allow"
-    }
+      "default": "allow",
+    },
   },
   "language_models": {
     "openai_compatible": {
@@ -103,29 +92,29 @@
               "tools": true,
               "images": true,
               "parallel_tool_calls": false,
-              "prompt_cache_key": false
-            }
-          }
-        ]
-      }
-    }
+              "prompt_cache_key": false,
+            },
+          },
+        ],
+      },
+    },
   },
   "agent_servers": {
     "claude-acp": {
-      "type": "registry"
-    }
+      "type": "registry",
+    },
   },
   "project_panel": {
     "button": true,
-    "dock": "left"
+    "dock": "left",
   },
   "autosave": "on_focus_change",
   "telemetry": {
     "diagnostics": false,
-    "metrics": false
+    "metrics": false,
   },
   "session": {
-    "trust_all_worktrees": true
+    "trust_all_worktrees": true,
   },
   "vim_mode": true,
   "ui_font_size": 18.0,
@@ -133,6 +122,6 @@
   "theme": {
     "mode": "dark",
     "light": "One Light",
-    "dark": "High Contrast Tokyo Night"
-  }
+    "dark": "High Contrast Tokyo Night",
+  },
 }

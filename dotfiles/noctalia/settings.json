@@ -107,6 +107,16 @@
                     "visualizerType": "linear"
                 },
                 {
+                    "defaultSettings": {
+                        "cursorPosition": 0,
+                        "filePath": "",
+                        "fontSize": 14,
+                        "panelHeight": 400,
+                        "panelWidth": 600,
+                        "scratchpadContent": "",
+                        "scrollPositionX": 0,
+                        "scrollPositionY": 0
+                    },
                     "id": "plugin:notes-scratchpad"
                 }
             ],
@@ -169,9 +179,30 @@
                     ]
                 },
                 {
+                    "defaultSettings": {
+                        "autoStartBreaks": false,
+                        "autoStartWork": false,
+                        "longBreakDuration": 15,
+                        "sessionsBeforeLongBreak": 4,
+                        "shortBreakDuration": 5,
+                        "workDuration": 25
+                    },
                     "id": "plugin:pomodoro"
                 },
                 {
+                    "defaultSettings": {
+                        "clickAction": "panel",
+                        "compactMode": false,
+                        "confirmDisconnectInLockdown": true,
+                        "expiryWarningDays": 7,
+                        "favoriteCountries": [
+                        ],
+                        "refreshInterval": 3000,
+                        "relayClickConnects": true,
+                        "showCityName": false,
+                        "showCountryFlag": true,
+                        "showIp": false
+                    },
                     "id": "plugin:mullvad"
                 },
                 {

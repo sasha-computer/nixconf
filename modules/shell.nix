@@ -2,6 +2,7 @@
 {
   programs.fish.enable = true;
   programs.direnv.enable = true;
+  programs.direnv.settings.global.hide_env_diff = true;
 
   environment.variables.EDITOR = "hx";
 
@@ -32,7 +33,6 @@
       bun
       devenv
       marksman
-      steel
       zellij
     ];
   };

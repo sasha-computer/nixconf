@@ -15,10 +15,27 @@ input {
 
 output "eDP-1" {
     scale 1.5
+    position x=0 y=0
 }
 
 output "LG Electronics LG ULTRAFINE 512NTCZGY219" {
     scale 2
+}
+
+// UltraFine 5K 27" is a tiled panel (2x 2560x2880 halves) and blacks out
+// unless BOTH streams are driven. niri can't merge tiles yet (patch in
+// progress) — until then, drive it as two side-by-side outputs.
+// DP-5 = left tile, DP-6 = right tile (no EDID name, match by connector).
+output "LG Electronics LG UltraFine 906NTPCB2696" {
+    mode "2560x2880@59.996"
+    scale 2
+    position x=1920 y=0
+}
+
+output "DP-6" {
+    mode "2560x2880@59.996"
+    scale 2
+    position x=3200 y=0
 }
 
 prefer-no-csd
@@ -70,7 +87,7 @@ binds {
     Mod+T { spawn "sh" "-c" r#"id=$(niri msg --json windows | jq -r 'first(.[] | select(.app_id != null and (.app_id | test("telegram"; "i")))).id // empty'); if [ -n "$id" ]; then niri msg action focus-window --id "$id"; else telegram-desktop; fi"#; }
     Mod+M { spawn "sh" "-c" r#"id=$(niri msg --json windows | jq -r 'first(.[] | select(.app_id != null and (.app_id | test("spotify"; "i")))).id // empty'); if [ -n "$id" ]; then niri msg action focus-window --id "$id"; else spotify; fi"#; }
 
-    Mod+D { spawn "noctalia-shell" "ipc" "call" "launcher" "toggle"; }
+    Mod+Space { spawn "noctalia-shell" "ipc" "call" "launcher" "toggle"; }
     Mod+Shift+V { spawn "noctalia-shell" "ipc" "call" "launcher" "clipboard"; }
     Mod+Escape { spawn "noctalia-shell" "ipc" "call" "lockScreen" "lock"; }
 
@@ -150,6 +167,7 @@ binds {
     XF86MonBrightnessDown { spawn "brightnessctl" "set" "5%-"; }
 
     Print { screenshot; }
+    Alt+Shift+4 { screenshot; }
     Ctrl+Print { screenshot-screen; }
     Alt+Print { screenshot-window; }
 
